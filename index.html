@@ -521,31 +521,11 @@
   </div>
 
   <!-- KPI ROW -->
-  <div class="kpi-row">
+  <div style="margin-bottom: 28px;">
     <div class="kpi-main">
       <div class="label">Total startups evaluadas</div>
       <div class="value">78</div>
-      <div class="sublabel">empresas vistas este trimestre</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">Con Revenue</div>
-      <div class="value">37</div>
-      <div class="pct">47.4%</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">Invertidas</div>
-      <div class="value">6</div>
-      <div class="pct">7.7% conv.</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">En Evaluación</div>
-      <div class="value">5</div>
-      <div class="sublabel">activas en proceso</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">Países</div>
-      <div class="value">12</div>
-      <div class="sublabel">geografías</div>
+      <div class="sublabel">empresas vistas este trimestre · Q1 2026</div>
     </div>
   </div>
 
@@ -650,129 +630,11 @@
       <div class="chart-wrap" style="height: 240px;">
         <canvas id="multCatChart" role="img" aria-label="Múltiplos por categoría: SaaS 26.3x n=12, Fintech 12.9x n=6, Ecommerce 13.1x n=5, Consumer 22.3x n=2">SaaS 26.3x n=12, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x</canvas>
       </div>
-      <div class="chart-note">⚠ Consumer: n=2, dato no representativo estadísticamente</div>
+      <div class="chart-note">⚠ Consumer: dato no representativo estadísticamente</div>
     </div>
   </div>
 
-  <div class="section-divider"><span>Funnel y fuentes</span></div>
 
-  <!-- ROW 4: Funnel + Source -->
-  <div class="grid-2">
-
-    <!-- Pipeline funnel -->
-    <div class="chart-card" id="card-funnel">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Estado del Pipeline</div>
-          <div class="card-sub">Distribución por etapa de proceso · Q1 2026</div>
-        </div>
-        <button class="btn-dl" onclick="downloadCard('card-funnel')">↓ PNG</button>
-      </div>
-      <table class="funnel-table">
-        <thead>
-          <tr>
-            <th>Etapa</th>
-            <th>N°</th>
-            <th style="text-align:left;">%</th>
-            <th>Volumen</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="stage-pill pill-declined">Declined</span></td>
-            <td>52</td>
-            <td>66.7%</td>
-            <td>
-              <div class="bar-inline">
-                <div class="bar-bg"><div class="bar-fill" style="width:66.7%; background:#e8edf5;"></div></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="stage-pill pill-hold">Hold</span></td>
-            <td>13</td>
-            <td>16.7%</td>
-            <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:16.7%; background:#fcd34d;"></div></div></div></td>
-          </tr>
-          <tr>
-            <td><span class="stage-pill pill-invested">Invested</span></td>
-            <td>6</td>
-            <td>7.7%</td>
-            <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:7.7%; background:#4ade80;"></div></div></div></td>
-          </tr>
-          <tr>
-            <td><span class="stage-pill pill-evaluation">Evaluation</span></td>
-            <td>3</td>
-            <td>3.8%</td>
-            <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:3.8%; background:#60a5fa;"></div></div></div></td>
-          </tr>
-          <tr>
-            <td><span class="stage-pill pill-committee">Int. Committee</span></td>
-            <td>2</td>
-            <td>2.6%</td>
-            <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:2.6%; background:#a78bfa;"></div></div></div></td>
-          </tr>
-          <tr>
-            <td><span class="stage-pill pill-committee">Ext. Committee</span></td>
-            <td>2</td>
-            <td>2.6%</td>
-            <td><div class="bar-inline"><div class="bar-bg"><div class="bar-fill" style="width:2.6%; background:#c084fc;"></div></div></div></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="chart-note">Tasa de conversión a inversión: 7.7% (6/78)</div>
-    </div>
-
-    <!-- Source breakdown -->
-    <div class="chart-card" id="card-source">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Fuente de Originación</div>
-          <div class="card-sub">Cómo llegaron las startups al pipeline · Q1 2026</div>
-        </div>
-        <button class="btn-dl" onclick="downloadCard('card-source')">↓ PNG</button>
-      </div>
-      <div class="source-grid" style="margin-top: 8px;">
-        <div class="source-row">
-          <div class="source-label">Inbound</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:33.3%; background:#1F3864;"></div></div>
-          <div class="source-n">26</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Other Investor</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:23.1%; background:#2a4a7f;"></div></div>
-          <div class="source-n">18</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Outbound</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:19.2%; background:#3a5f9e;"></div></div>
-          <div class="source-n">15</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Other</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:7.7%; background:#6a8fc8;"></div></div>
-          <div class="source-n">6</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Evento / Conf.</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:6.4%; background:#4a90d9;"></div></div>
-          <div class="source-n">5</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Referral / Scout</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:6.4%; background:#7ab3e8;"></div></div>
-          <div class="source-n">5</div>
-        </div>
-        <div class="source-row">
-          <div class="source-label">Founder Referral</div>
-          <div class="source-bar-bg"><div class="source-bar-fill" style="width:3.8%; background:#afd3f4;"></div></div>
-          <div class="source-n">3</div>
-        </div>
-      </div>
-      <div class="chart-note">Inbound + Outbound representan el 52.6% del origen total del pipeline</div>
-    </div>
-
-  </div>
 
 </main>
 
@@ -958,7 +820,6 @@ new Chart(document.getElementById('multStageChart'), {
   plugins: [{
     afterDatasetsDraw(chart) {
       const ctx2 = chart.ctx;
-      const ns = [15, 6, 6];
       const vals = [20.0, 27.8, 12.5];
       chart.data.datasets[0].data.forEach((val, i) => {
         const meta = chart.getDatasetMeta(0);
@@ -968,9 +829,6 @@ new Chart(document.getElementById('multStageChart'), {
         ctx2.font = '600 13px DM Sans, sans-serif';
         ctx2.textAlign = 'center';
         ctx2.fillText(vals[i].toFixed(1) + 'x', bar.x, bar.y + 18);
-        ctx2.fillStyle = 'rgba(255,255,255,0.6)';
-        ctx2.font = '11px DM Sans, sans-serif';
-        ctx2.fillText('n=' + ns[i], bar.x, bar.y + 32);
         ctx2.restore();
       });
     }
@@ -1023,7 +881,6 @@ new Chart(document.getElementById('multCatChart'), {
   plugins: [{
     afterDatasetsDraw(chart) {
       const ctx2 = chart.ctx;
-      const ns = [12, 6, 5, 2];
       const vals = [26.3, 12.9, 13.1, 22.3];
       chart.data.datasets[0].data.forEach((val, i) => {
         const meta = chart.getDatasetMeta(0);
@@ -1033,9 +890,6 @@ new Chart(document.getElementById('multCatChart'), {
         ctx2.font = '600 13px DM Sans, sans-serif';
         ctx2.textAlign = 'center';
         ctx2.fillText(vals[i].toFixed(1) + 'x', bar.x, bar.y + 18);
-        ctx2.fillStyle = 'rgba(255,255,255,0.6)';
-        ctx2.font = '11px DM Sans, sans-serif';
-        ctx2.fillText((i === 3 ? '⚠ ' : '') + 'n=' + ns[i], bar.x, bar.y + 32);
         ctx2.restore();
       });
     }

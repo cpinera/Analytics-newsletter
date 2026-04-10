@@ -547,12 +547,12 @@
         <canvas id="countryChart" role="img" aria-label="Distribución por país: México 24, Chile 23, Otros 12, Colombia 8, Argentina 7, Brasil 4">México 24, Chile 23, Otros 12, Colombia 8, Argentina 7, Brasil 4</canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>México — 24 (30.8%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#3a5f9e"></span>Chile — 23 (29.5%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Colombia — 8 (10.3%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Argentina — 7 (9.0%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#afd3f4"></span>Brasil — 4 (5.1%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#d0e6f9"></span>Otros — 12 (15.4%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>México — 30.8%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#3a5f9e"></span>Chile — 29.5%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Colombia — 10.3%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Argentina — 9.0%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#afd3f4"></span>Brasil — 5.1%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#d0e6f9"></span>Otros — 15.4%</span>
       </div>
     </div>
 
@@ -569,10 +569,10 @@
         <canvas id="stageChart" role="img" aria-label="Distribución por etapa: Pre-Seed 43, Seed 21, Seed Extension 6, Series A 6">Pre-Seed 43, Seed 21, Seed Ext 6, Series A 6</canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>Pre-Seed — 43 (56.6%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Seed — 21 (27.6%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Seed Ext. — 6 (7.9%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Series A — 6 (7.9%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>Pre-Seed — 56.6%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Seed — 27.6%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Seed Ext. — 7.9%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Series A — 7.9%</span>
       </div>
     </div>
 
@@ -589,10 +589,10 @@
         <canvas id="categoryChart" role="img" aria-label="Distribución por categoría: SaaS 42, Fintech 16, Ecommerce 10, Consumer 4">SaaS 42, Fintech 16, Ecommerce 10, Consumer 4</canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>SaaS — 42 (57.5%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Fintech — 16 (21.9%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Ecommerce — 10 (13.7%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Consumer — 4 (5.5%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>SaaS — 57.5%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Fintech — 21.9%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Ecommerce — 13.7%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Consumer — 5.5%</span>
       </div>
       <div class="chart-note">* Excluye 3 empresas categorizadas como "Other" y casos sin categoría definida</div>
     </div>
@@ -634,7 +634,32 @@
     </div>
   </div>
 
+  <div class="section-divider"><span>Múltiplos Val/ARR · Etapa × Categoría</span></div>
 
+  <div class="chart-card" id="card-heatmap" style="margin-bottom: 20px;">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Múltiplos Valuation / ARR — Etapa × Categoría</div>
+        <div class="card-sub">Promedio por celda · Q1 2026</div>
+      </div>
+      <button class="btn-dl" onclick="downloadCard('card-heatmap')">↓ PNG</button>
+    </div>
+    <div style="overflow-x: auto;">
+      <table id="heatmap-table" style="width:100%; border-collapse: separate; border-spacing: 6px;">
+        <thead>
+          <tr>
+            <th style="width:140px; text-align:left; font-size:11px; color:#8a9ab8; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; padding:4px 8px;">Etapa \ Categoría</th>
+            <th style="font-size:12px; font-weight:600; color:#1a2340; text-align:center; padding:4px 8px;">SaaS</th>
+            <th style="font-size:12px; font-weight:600; color:#1a2340; text-align:center; padding:4px 8px;">Fintech</th>
+            <th style="font-size:12px; font-weight:600; color:#1a2340; text-align:center; padding:4px 8px;">Ecommerce</th>
+            <th style="font-size:12px; font-weight:600; color:#1a2340; text-align:center; padding:4px 8px;">Consumer</th>
+          </tr>
+        </thead>
+        <tbody id="heatmap-body"></tbody>
+      </table>
+    </div>
+    <div class="chart-note" style="margin-top:16px;">* Pre-Seed excluido por distorsión de múltiplos en startups pre-revenue.</div>
+  </div>
 
 </main>
 
@@ -896,7 +921,56 @@ new Chart(document.getElementById('multCatChart'), {
   }]
 });
 
-/* Period selector */
+/* Heatmap Etapa x Categoría */
+const heatData = {
+  'Seed':           { SaaS: {v:22.7,n:9},  Fintech: {v:8.5,n:2},  Ecommerce: {v:12.3,n:3}, Consumer: {v:41.7,n:1} },
+  'Seed Extension': { SaaS: {v:100.0,n:1}, Fintech: {v:18.6,n:3}, Ecommerce: {v:7.7,n:1},  Consumer: {v:3.0,n:1}  },
+  'Series A':       { SaaS: {v:5.7,n:2},   Fintech: {v:4.5,n:1},  Ecommerce: {v:20.8,n:1}, Consumer: null         },
+};
+const heatCats = ['SaaS','Fintech','Ecommerce','Consumer'];
+const heatStages = ['Seed','Seed Extension','Series A'];
+
+// Find max for color scaling (exclude n=1)
+const allVals = [];
+heatStages.forEach(s => heatCats.forEach(c => {
+  const d = heatData[s][c];
+  if (d && d.n > 1) allVals.push(d.v);
+}));
+const maxVal = Math.max(...allVals);
+
+function heatColor(v) {
+  if (v === null || v === undefined) return { bg: '#f1f3f8', text: '#b0baca' };
+  const intensity = Math.min(v / maxVal, 1);
+  const r = Math.round(31 + (230 - 31) * (1 - intensity));
+  const g = Math.round(56 + (240 - 56) * (1 - intensity));
+  const b = Math.round(100 + (250 - 100) * (1 - intensity));
+  const textColor = intensity > 0.45 ? '#ffffff' : '#1a2340';
+  return { bg: `rgb(${r},${g},${b})`, text: textColor };
+}
+
+const tbody = document.getElementById('heatmap-body');
+heatStages.forEach(stage => {
+  const tr = document.createElement('tr');
+  const tdLabel = document.createElement('td');
+  tdLabel.style.cssText = 'font-size:13px;font-weight:600;color:#1a2340;padding:4px 8px;white-space:nowrap;';
+  tdLabel.textContent = stage;
+  tr.appendChild(tdLabel);
+
+  heatCats.forEach(cat => {
+    const d = heatData[stage][cat];
+    const { bg, text } = heatColor(d ? d.v : null);
+    const td = document.createElement('td');
+    td.style.cssText = `background:${bg};border-radius:8px;text-align:center;padding:18px 12px;min-width:100px;`;
+    if (d) {
+      td.innerHTML = `<div style="font-size:20px;font-weight:600;font-family:'DM Serif Display',serif;color:${text};line-height:1;">${d.v.toFixed(1)}x</div>`;
+    } else {
+      td.innerHTML = `<div style="font-size:18px;color:#cdd3e0;">—</div>`;
+    }
+    tr.appendChild(td);
+  });
+  tbody.appendChild(tr);
+});
+
 document.getElementById('periodSelect').addEventListener('change', function() {
   document.getElementById('currentPeriod').textContent = this.value;
   if (this.value !== 'Q1 2026') {

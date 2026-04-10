@@ -483,6 +483,20 @@
 
   #export-hint.visible { opacity: 1; }
 
+  [contenteditable="true"] {
+    outline: none;
+    border-radius: 3px;
+    transition: background 0.15s;
+    cursor: text;
+  }
+  [contenteditable="true"]:hover {
+    background: rgba(74, 144, 217, 0.07);
+  }
+  [contenteditable="true"]:focus {
+    background: rgba(74, 144, 217, 0.12);
+    box-shadow: 0 0 0 1px rgba(74,144,217,0.3);
+  }
+
   @media print {
     body { background: #fff; }
     header { position: relative; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
@@ -538,8 +552,8 @@
     <div class="chart-card" id="card-country">
       <div class="card-header">
         <div>
-          <div class="card-title">Distribución por País</div>
-          <div class="card-sub">N° startups · Q1 2026</div>
+          <div class="card-title" contenteditable="true" title="Click para editar">Distribución por País</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">N° startups · Q1 2026</div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-country')">↓ PNG</button>
       </div>
@@ -560,8 +574,8 @@
     <div class="chart-card" id="card-stage">
       <div class="card-header">
         <div>
-          <div class="card-title">Distribución por Etapa</div>
-          <div class="card-sub">% del total con etapa definida · Q1 2026</div>
+          <div class="card-title" contenteditable="true" title="Click para editar">Distribución por Etapa</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">% del total con etapa definida · Q1 2026</div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-stage')">↓ PNG</button>
       </div>
@@ -580,8 +594,8 @@
     <div class="chart-card" id="card-category">
       <div class="card-header">
         <div>
-          <div class="card-title">Distribución por Categoría</div>
-          <div class="card-sub">% del total (excl. Other) · Q1 2026</div>
+          <div class="card-title" contenteditable="true" title="Click para editar">Distribución por Categoría</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">% del total (excl. Other) · Q1 2026</div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-category')">↓ PNG</button>
       </div>
@@ -594,7 +608,7 @@
         <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Ecommerce — 13.7%</span>
         <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Consumer — 5.5%</span>
       </div>
-      <div class="chart-note">* Excluye 3 empresas categorizadas como "Other" y casos sin categoría definida</div>
+      <div class="chart-note" contenteditable="true" title="Click para editar">* Excluye 3 empresas categorizadas como "Other" y casos sin categoría definida</div>
     </div>
   </div>
 
@@ -607,30 +621,30 @@
     <div class="chart-card" id="card-mult-stage">
       <div class="card-header">
         <div>
-          <div class="card-title">Múltiplos Valuation / ARR por Etapa</div>
-          <div class="card-sub">Promedio ponderado · solo startups con ARR &gt; 0 · Q1 2026</div>
+          <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR por Etapa</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed y outliers · Q1 2026</div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-mult-stage')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 240px;">
-        <canvas id="multStageChart" role="img" aria-label="Múltiplos por etapa: Seed 20x n=15, Seed Ext 27.8x n=6, Series A 12.5x n=6">Seed 20x, Seed Ext 27.8x, Series A 12.5x</canvas>
+        <canvas id="multStageChart" role="img" aria-label="Múltiplos por etapa: Seed 20x, Seed Ext 13.3x, Series A 12.5x">Seed 20x, Seed Ext 13.3x, Series A 12.5x</canvas>
       </div>
-      <div class="chart-note">* Pre-Seed excluido (múltiplo no representativo: mediana distorsionada por startups pre-revenue con valuaciones altas vs ARR mínimo)</div>
+      <div class="chart-note" contenteditable="true" title="Click para editar">* Pre-Seed excluido — múltiplos distorsionados por startups pre-revenue con valuaciones altas vs ARR mínimo</div>
     </div>
 
     <!-- Multiples by category -->
     <div class="chart-card" id="card-mult-cat">
       <div class="card-header">
         <div>
-          <div class="card-title">Múltiplos Valuation / ARR por Categoría</div>
-          <div class="card-sub">Promedio ponderado · solo startups con ARR &gt; 0 · Q1 2026</div>
+          <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR por Categoría</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed y outliers · Q1 2026</div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-mult-cat')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 240px;">
-        <canvas id="multCatChart" role="img" aria-label="Múltiplos por categoría: SaaS 26.3x n=12, Fintech 12.9x n=6, Ecommerce 13.1x n=5, Consumer 22.3x n=2">SaaS 26.3x n=12, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x</canvas>
+        <canvas id="multCatChart" role="img" aria-label="Múltiplos por categoría: SaaS 18.8x, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x">SaaS 18.8x, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x</canvas>
       </div>
-      <div class="chart-note">⚠ Consumer: dato no representativo estadísticamente</div>
+      <div class="chart-note" contenteditable="true" title="Click para editar">⚠ Consumer: dato no representativo estadísticamente</div>
     </div>
   </div>
 
@@ -639,8 +653,8 @@
   <div class="chart-card" id="card-heatmap" style="margin-bottom: 20px;">
     <div class="card-header">
       <div>
-        <div class="card-title">Múltiplos Valuation / ARR — Etapa × Categoría</div>
-        <div class="card-sub">Promedio por celda · Q1 2026</div>
+        <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR — Etapa × Categoría</div>
+        <div class="card-sub" contenteditable="true" title="Click para editar">Promedio por celda · Q1 2026</div>
       </div>
       <button class="btn-dl" onclick="downloadCard('card-heatmap')">↓ PNG</button>
     </div>
@@ -805,7 +819,7 @@ new Chart(document.getElementById('multStageChart'), {
   data: {
     labels: ['Seed', 'Seed Extension', 'Series A'],
     datasets: [{
-      data: [20.0, 27.8, 12.5],
+      data: [20.0, 13.3, 12.5],
       backgroundColor: [NAVY, BLUE, NAVY_MID],
       borderWidth: 0,
       borderRadius: 6,
@@ -845,7 +859,7 @@ new Chart(document.getElementById('multStageChart'), {
   plugins: [{
     afterDatasetsDraw(chart) {
       const ctx2 = chart.ctx;
-      const vals = [20.0, 27.8, 12.5];
+      const vals = [20.0, 13.3, 12.5];
       chart.data.datasets[0].data.forEach((val, i) => {
         const meta = chart.getDatasetMeta(0);
         const bar = meta.data[i];
@@ -866,7 +880,7 @@ new Chart(document.getElementById('multCatChart'), {
   data: {
     labels: ['SaaS', 'Fintech', 'Ecommerce', 'Consumer'],
     datasets: [{
-      data: [26.3, 12.9, 13.1, 22.3],
+      data: [18.8, 12.9, 13.1, 22.3],
       backgroundColor: [NAVY, BLUE, NAVY_MID, GOLD],
       borderWidth: 0,
       borderRadius: 6,
@@ -906,7 +920,7 @@ new Chart(document.getElementById('multCatChart'), {
   plugins: [{
     afterDatasetsDraw(chart) {
       const ctx2 = chart.ctx;
-      const vals = [26.3, 12.9, 13.1, 22.3];
+      const vals = [18.8, 12.9, 13.1, 22.3];
       chart.data.datasets[0].data.forEach((val, i) => {
         const meta = chart.getDatasetMeta(0);
         const bar = meta.data[i];
@@ -924,7 +938,7 @@ new Chart(document.getElementById('multCatChart'), {
 /* Heatmap Etapa x Categoría */
 const heatData = {
   'Seed':           { SaaS: {v:22.7,n:9},  Fintech: {v:8.5,n:2},  Ecommerce: {v:12.3,n:3}, Consumer: {v:41.7,n:1} },
-  'Seed Extension': { SaaS: {v:100.0,n:1}, Fintech: {v:18.6,n:3}, Ecommerce: {v:7.7,n:1},  Consumer: {v:3.0,n:1}  },
+  'Seed Extension': { SaaS: null,           Fintech: {v:18.6,n:3}, Ecommerce: {v:7.7,n:1},  Consumer: {v:3.0,n:1}  },
   'Series A':       { SaaS: {v:5.7,n:2},   Fintech: {v:4.5,n:1},  Ecommerce: {v:20.8,n:1}, Consumer: null         },
 };
 const heatCats = ['SaaS','Fintech','Ecommerce','Consumer'];

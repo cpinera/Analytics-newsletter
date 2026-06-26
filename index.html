@@ -512,10 +512,9 @@
   <div class="period-selector">
     <label>Período</label>
     <select id="periodSelect">
-      <option value="Q1 2026" selected>Q1 2026</option>
+      <option value="Q1 2026">Q1 2026</option>
       <option value="Q2 2026">Q2 2026</option>
-      <option value="Q3 2026">Q3 2026</option>
-      <option value="Q4 2026">Q4 2026</option>
+      <option value="Acumulado H1 2026" selected>Acumulado H1 2026</option>
     </select>
   </div>
   <div class="header-actions">
@@ -530,7 +529,7 @@
   <div class="page-title">
     <h1>Pipeline Analytics <em>Dashboard</em></h1>
     <div>
-      <span class="period-badge" id="currentPeriod">Q1 2026</span>
+      <span class="period-badge" id="currentPeriod">Acumulado H1 2026</span>
     </div>
   </div>
 
@@ -538,8 +537,8 @@
   <div style="margin-bottom: 28px;">
     <div class="kpi-main">
       <div class="label">Total startups evaluadas</div>
-      <div class="value">78</div>
-      <div class="sublabel">empresas vistas este trimestre · Q1 2026</div>
+      <div class="value" id="kpiTotal">172</div>
+      <div class="sublabel" id="kpiSub">empresas vistas en el semestre (ene–jun) · Acumulado H1 2026</div>
     </div>
   </div>
 
@@ -553,21 +552,14 @@
       <div class="card-header">
         <div>
           <div class="card-title" contenteditable="true" title="Click para editar">Distribución por País</div>
-          <div class="card-sub" contenteditable="true" title="Click para editar">N° startups · Q1 2026</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">N° startups · <span class="period-label">Acumulado H1 2026</span></div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-country')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 220px;">
-        <canvas id="countryChart" role="img" aria-label="Distribución por país: México 24, Chile 23, Otros 12, Colombia 8, Argentina 7, Brasil 4">México 24, Chile 23, Otros 12, Colombia 8, Argentina 7, Brasil 4</canvas>
+        <canvas id="countryChart" role="img" aria-label="Distribución por país"></canvas>
       </div>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>México — 30.8%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#3a5f9e"></span>Chile — 29.5%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Colombia — 10.3%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Argentina — 9.0%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#afd3f4"></span>Brasil — 5.1%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#d0e6f9"></span>Otros — 15.4%</span>
-      </div>
+      <div class="legend" id="legend-country"></div>
     </div>
 
     <!-- Stage chart -->
@@ -575,19 +567,14 @@
       <div class="card-header">
         <div>
           <div class="card-title" contenteditable="true" title="Click para editar">Distribución por Etapa</div>
-          <div class="card-sub" contenteditable="true" title="Click para editar">% del total con etapa definida · Q1 2026</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">% del total con etapa definida · <span class="period-label">Acumulado H1 2026</span></div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-stage')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 220px;">
-        <canvas id="stageChart" role="img" aria-label="Distribución por etapa: Pre-Seed 43, Seed 21, Seed Extension 6, Series A 6">Pre-Seed 43, Seed 21, Seed Ext 6, Series A 6</canvas>
+        <canvas id="stageChart" role="img" aria-label="Distribución por etapa"></canvas>
       </div>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>Pre-Seed — 56.6%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Seed — 27.6%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Seed Ext. — 7.9%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Series A — 7.9%</span>
-      </div>
+      <div class="legend" id="legend-stage"></div>
     </div>
 
     <!-- Category chart -->
@@ -595,20 +582,15 @@
       <div class="card-header">
         <div>
           <div class="card-title" contenteditable="true" title="Click para editar">Distribución por Categoría</div>
-          <div class="card-sub" contenteditable="true" title="Click para editar">% del total (excl. Other) · Q1 2026</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">% del total (excl. Other) · <span class="period-label">Acumulado H1 2026</span></div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-category')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 220px;">
-        <canvas id="categoryChart" role="img" aria-label="Distribución por categoría: SaaS 42, Fintech 16, Ecommerce 10, Consumer 4">SaaS 42, Fintech 16, Ecommerce 10, Consumer 4</canvas>
+        <canvas id="categoryChart" role="img" aria-label="Distribución por categoría"></canvas>
       </div>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1F3864"></span>SaaS — 57.5%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#4a90d9"></span>Fintech — 21.9%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#7ab3e8"></span>Ecommerce — 13.7%</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>Consumer — 5.5%</span>
-      </div>
-      <div class="chart-note" contenteditable="true" title="Click para editar">* Excluye 3 empresas categorizadas como "Other" y casos sin categoría definida</div>
+      <div class="legend" id="legend-category"></div>
+      <div class="chart-note" id="catNote">* Excluye empresas categorizadas como "Other" o sin categoría definida.</div>
     </div>
   </div>
 
@@ -617,34 +599,32 @@
   <!-- ROW 3: Multiples -->
   <div class="grid-2" style="margin-bottom: 20px;">
 
-    <!-- Multiples by stage -->
     <div class="chart-card" id="card-mult-stage">
       <div class="card-header">
         <div>
           <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR por Etapa</div>
-          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed y outliers · Q1 2026</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed · <span class="period-label">Acumulado H1 2026</span></div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-mult-stage')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 240px;">
-        <canvas id="multStageChart" role="img" aria-label="Múltiplos por etapa: Seed 20x, Seed Ext 13.3x, Series A 12.5x">Seed 20x, Seed Ext 13.3x, Series A 12.5x</canvas>
+        <canvas id="multStageChart" role="img" aria-label="Múltiplos por etapa"></canvas>
       </div>
-      <div class="chart-note" contenteditable="true" title="Click para editar">* Pre-Seed excluido — múltiplos distorsionados por startups pre-revenue con valuaciones altas vs ARR mínimo</div>
+      <div class="chart-note" contenteditable="true" title="Click para editar">* Promedio ponderado por ARR (Σ valuación / Σ ARR). Pre-Seed excluido por distorsión en startups pre-revenue.</div>
     </div>
 
-    <!-- Multiples by category -->
     <div class="chart-card" id="card-mult-cat">
       <div class="card-header">
         <div>
           <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR por Categoría</div>
-          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed y outliers · Q1 2026</div>
+          <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado · excl. Pre-Seed · <span class="period-label">Acumulado H1 2026</span></div>
         </div>
         <button class="btn-dl" onclick="downloadCard('card-mult-cat')">↓ PNG</button>
       </div>
       <div class="chart-wrap" style="height: 240px;">
-        <canvas id="multCatChart" role="img" aria-label="Múltiplos por categoría: SaaS 18.8x, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x">SaaS 18.8x, Fintech 12.9x, Ecommerce 13.1x, Consumer 22.3x</canvas>
+        <canvas id="multCatChart" role="img" aria-label="Múltiplos por categoría"></canvas>
       </div>
-      <div class="chart-note" contenteditable="true" title="Click para editar">⚠ Consumer: dato no representativo estadísticamente</div>
+      <div class="chart-note" id="multCatNote" contenteditable="true" title="Click para editar">* Promedio ponderado por ARR. Categorías sin empresas con revenue no se muestran.</div>
     </div>
   </div>
 
@@ -654,7 +634,7 @@
     <div class="card-header">
       <div>
         <div class="card-title" contenteditable="true" title="Click para editar">Múltiplos Valuation / ARR — Etapa × Categoría</div>
-        <div class="card-sub" contenteditable="true" title="Click para editar">Promedio por celda · Q1 2026</div>
+        <div class="card-sub" contenteditable="true" title="Click para editar">Promedio ponderado por celda · <span class="period-label">Acumulado H1 2026</span></div>
       </div>
       <button class="btn-dl" onclick="downloadCard('card-heatmap')">↓ PNG</button>
     </div>
@@ -672,7 +652,7 @@
         <tbody id="heatmap-body"></tbody>
       </table>
     </div>
-    <div class="chart-note" style="margin-top:16px;">* Pre-Seed excluido por distorsión de múltiplos en startups pre-revenue.</div>
+    <div class="chart-note" style="margin-top:16px;">* Pre-Seed excluido por distorsión de múltiplos en startups pre-revenue. Celda gris = sin datos / no representativa.</div>
   </div>
 
 </main>
@@ -681,357 +661,98 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-const NAVY = '#1F3864';
-const NAVY_MID = '#2a4a7f';
-const BLUE = '#4a90d9';
-const BLUE_LIGHT = '#7ab3e8';
-const BLUE_SOFT = '#afd3f4';
-const BLUE_PALE = '#d0e6f9';
-const GOLD = '#c9a84c';
-const GRAY = '#cbd5e1';
+const NAVY='#1F3864',NAVY_MID='#2a4a7f',BLUE='#4a90d9',BLUE_LIGHT='#7ab3e8',BLUE_SOFT='#afd3f4',BLUE_PALE='#d0e6f9',GOLD='#c9a84c';
 
-const chartDefaults = {
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      backgroundColor: '#1F3864',
-      titleColor: '#fff',
-      bodyColor: 'rgba(255,255,255,0.8)',
-      padding: 10,
-      cornerRadius: 6,
-    }
-  },
-  animation: { duration: 600, easing: 'easeOutQuart' }
-};
+const DATASETS = {"Q1 2026": {"total": 78, "kpiSub": "empresas vistas en el trimestre", "country": {"México": 24, "Chile": 23, "Colombia": 8, "Argentina": 7, "Brasil": 4, "Otros": 12}, "stage": {"Pre-Seed": 43, "Seed": 21, "Seed Extension": 6, "Series A": 6}, "category": {"SaaS": 42, "Fintech": 16, "Ecommerce": 10, "Consumer": 4}, "multStage": {"Seed": 20.0, "Seed Extension": 13.3, "Series A": 12.5}, "multCat": {"SaaS": 18.8, "Fintech": 12.9, "Ecommerce": 13.1, "Consumer": 22.3}, "heat": {"Seed": {"SaaS": {"v": 22.7, "n": 9}, "Fintech": {"v": 8.5, "n": 2}, "Ecommerce": {"v": 12.3, "n": 3}, "Consumer": {"v": 41.7, "n": 1}}, "Seed Extension": {"SaaS": null, "Fintech": {"v": 18.6, "n": 3}, "Ecommerce": {"v": 7.7, "n": 1}, "Consumer": {"v": 3.0, "n": 1}}, "Series A": {"SaaS": {"v": 5.7, "n": 2}, "Fintech": {"v": 4.5, "n": 1}, "Ecommerce": {"v": 20.8, "n": 1}, "Consumer": null}}}, "Q2 2026": {"total": 78, "kpiSub": "startups nuevas en el trimestre", "country": {"México": 5, "Chile": 23, "Colombia": 12, "Argentina": 5, "Brasil": 9, "Otros": 24}, "stage": {"Pre-Seed": 24, "Seed": 26, "Seed Extension": 8, "Series A": 6}, "category": {"SaaS": 38, "Fintech": 26, "Ecommerce": 4, "Consumer": 3}, "multStage": {"Seed": 22.3, "Seed Extension": 3.7, "Series A": 10.5}, "multCat": {"SaaS": 19.5, "Fintech": 9.6}, "heat": {"Seed": {"SaaS": {"v": 30.3, "n": 13}, "Fintech": {"v": 13.1, "n": 10}, "Ecommerce": null, "Consumer": null}, "Seed Extension": {"SaaS": {"v": 14.7, "n": 3}, "Fintech": {"v": 9.2, "n": 2}, "Ecommerce": null, "Consumer": null}, "Series A": {"SaaS": {"v": 18.3, "n": 2}, "Fintech": {"v": 7.9, "n": 3}, "Ecommerce": null, "Consumer": null}}}, "Acumulado H1 2026": {"total": 172, "kpiSub": "empresas vistas en el semestre (ene–jun)", "country": {"México": 26, "Chile": 61, "Colombia": 20, "Argentina": 12, "Brasil": 12, "Otros": 41}, "stage": {"Pre-Seed": 87, "Seed": 48, "Seed Extension": 12, "Series A": 10}, "category": {"SaaS": 87, "Fintech": 37, "Ecommerce": 18, "Consumer": 14}, "multStage": {"Seed": 17.8, "Seed Extension": 4.0, "Series A": 8.0}, "multCat": {"SaaS": 16.9, "Fintech": 8.0, "Ecommerce": 11.2, "Consumer": 3.6}, "heat": {"Seed": {"SaaS": {"v": 19.9, "n": 23}, "Fintech": {"v": 9.0, "n": 11}, "Ecommerce": {"v": 25.2, "n": 3}, "Consumer": {"v": 41.7, "n": 1}}, "Seed Extension": {"SaaS": {"v": 14.7, "n": 3}, "Fintech": {"v": 11.8, "n": 4}, "Ecommerce": null, "Consumer": {"v": 3.0, "n": 1}}, "Series A": {"SaaS": {"v": 14.7, "n": 3}, "Fintech": {"v": 6.3, "n": 4}, "Ecommerce": {"v": 5.9, "n": 1}, "Consumer": null}}}};
 
-/* Country - horizontal bar */
-new Chart(document.getElementById('countryChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Brasil', 'Argentina', 'Colombia', 'Otros', 'Chile', 'México'],
-    datasets: [{
-      data: [4, 7, 8, 12, 23, 24],
-      backgroundColor: [BLUE_PALE, BLUE_SOFT, BLUE_LIGHT, BLUE, NAVY_MID, NAVY],
-      borderWidth: 0,
-      borderRadius: 4,
-    }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        grid: { color: 'rgba(0,0,0,0.04)' },
-        ticks: { color: '#8a9ab8', font: { size: 11 }, stepSize: 5 },
-        border: { display: false }
-      },
-      y: {
-        grid: { display: false },
-        ticks: { color: '#5a6a8a', font: { size: 12 } },
-        border: { display: false }
-      }
-    },
-    plugins: {
-      ...chartDefaults.plugins,
-      tooltip: {
-        ...chartDefaults.plugins.tooltip,
-        callbacks: {
-          label: ctx => ` ${ctx.raw} startups`
-        }
-      }
-    },
-    animation: chartDefaults.animation
-  }
-});
+const COUNTRY_ORDER=['México','Chile','Colombia','Argentina','Brasil','Otros'];
+const COUNTRY_DOT={'México':'#1F3864','Chile':'#3a5f9e','Colombia':'#4a90d9','Argentina':'#7ab3e8','Brasil':'#afd3f4','Otros':'#d0e6f9'};
+const STAGE_ORDER=['Pre-Seed','Seed','Seed Extension','Series A'];
+const STAGE_DOT={'Pre-Seed':NAVY,'Seed':BLUE,'Seed Extension':BLUE_LIGHT,'Series A':GOLD};
+const CAT_ORDER=['SaaS','Fintech','Ecommerce','Consumer'];
+const CAT_COLOR={'SaaS':NAVY,'Fintech':BLUE,'Ecommerce':NAVY_MID,'Consumer':GOLD};
+const CAT_DOT={'SaaS':NAVY,'Fintech':BLUE,'Ecommerce':BLUE_LIGHT,'Consumer':GOLD};
+const ASC_COLORS=[BLUE_PALE,BLUE_SOFT,BLUE_LIGHT,BLUE,NAVY_MID,NAVY];
 
-/* Stage - donut */
-new Chart(document.getElementById('stageChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Pre-Seed', 'Seed', 'Seed Extension', 'Series A'],
-    datasets: [{
-      data: [43, 21, 6, 6],
-      backgroundColor: [NAVY, BLUE, BLUE_LIGHT, GOLD],
-      borderWidth: 3,
-      borderColor: '#fff',
-      hoverBorderColor: '#fff',
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '62%',
-    plugins: {
-      ...chartDefaults.plugins,
-      tooltip: {
-        ...chartDefaults.plugins.tooltip,
-        callbacks: {
-          label: ctx => {
-            const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
-            const pct = (ctx.raw / total * 100).toFixed(1);
-            return ` ${ctx.raw} (${pct}%)`;
-          }
-        }
-      }
-    },
-    animation: chartDefaults.animation
-  }
-});
+const chartDefaults={plugins:{legend:{display:false},tooltip:{backgroundColor:'#1F3864',titleColor:'#fff',bodyColor:'rgba(255,255,255,0.8)',padding:10,cornerRadius:6}},animation:{duration:600,easing:'easeOutQuart'}};
 
-/* Category - donut */
-new Chart(document.getElementById('categoryChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['SaaS', 'Fintech', 'Ecommerce', 'Consumer'],
-    datasets: [{
-      data: [42, 16, 10, 4],
-      backgroundColor: [NAVY, BLUE, BLUE_LIGHT, GOLD],
-      borderWidth: 3,
-      borderColor: '#fff',
-      hoverBorderColor: '#fff',
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '62%',
-    plugins: {
-      ...chartDefaults.plugins,
-      tooltip: {
-        ...chartDefaults.plugins.tooltip,
-        callbacks: {
-          label: ctx => {
-            const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
-            const pct = (ctx.raw / total * 100).toFixed(1);
-            return ` ${ctx.raw} (${pct}%)`;
-          }
-        }
-      }
-    },
-    animation: chartDefaults.animation
-  }
-});
+// --- create charts once ---
+const countryChart=new Chart(document.getElementById('countryChart'),{type:'bar',data:{labels:[],datasets:[{data:[],backgroundColor:[],borderWidth:0,borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{color:'#8a9ab8',font:{size:11},stepSize:5},border:{display:false}},y:{grid:{display:false},ticks:{color:'#5a6a8a',font:{size:12}},border:{display:false}}},plugins:{...chartDefaults.plugins,tooltip:{...chartDefaults.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.raw} startups`}}},animation:chartDefaults.animation}});
 
-/* Multiples by Stage */
-new Chart(document.getElementById('multStageChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Seed', 'Seed Extension', 'Series A'],
-    datasets: [{
-      data: [20.0, 13.3, 12.5],
-      backgroundColor: [NAVY, BLUE, NAVY_MID],
-      borderWidth: 0,
-      borderRadius: 6,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        grid: { display: false },
-        ticks: { color: '#5a6a8a', font: { size: 12 } },
-        border: { display: false }
-      },
-      y: {
-        grid: { color: 'rgba(0,0,0,0.04)' },
-        ticks: {
-          color: '#8a9ab8',
-          font: { size: 11 },
-          callback: v => v + 'x'
-        },
-        border: { display: false },
-        min: 0
-      }
-    },
-    plugins: {
-      ...chartDefaults.plugins,
-      tooltip: {
-        ...chartDefaults.plugins.tooltip,
-        callbacks: {
-          label: ctx => ` ${ctx.raw.toFixed(1)}x`
-        }
-      }
-    },
-    animation: chartDefaults.animation
-  },
-  plugins: [{
-    afterDatasetsDraw(chart) {
-      const ctx2 = chart.ctx;
-      const vals = [20.0, 13.3, 12.5];
-      chart.data.datasets[0].data.forEach((val, i) => {
-        const meta = chart.getDatasetMeta(0);
-        const bar = meta.data[i];
-        ctx2.save();
-        ctx2.fillStyle = '#fff';
-        ctx2.font = '600 13px DM Sans, sans-serif';
-        ctx2.textAlign = 'center';
-        ctx2.fillText(vals[i].toFixed(1) + 'x', bar.x, bar.y + 18);
-        ctx2.restore();
-      });
-    }
-  }]
-});
+function donut(id){return new Chart(document.getElementById(id),{type:'doughnut',data:{labels:[],datasets:[{data:[],backgroundColor:[],borderWidth:3,borderColor:'#fff',hoverBorderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{...chartDefaults.plugins,tooltip:{...chartDefaults.plugins.tooltip,callbacks:{label:ctx=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return ` ${ctx.raw} (${(ctx.raw/t*100).toFixed(1)}%)`;}}}},animation:chartDefaults.animation}});}
+const stageChart=donut('stageChart');
+const categoryChart=donut('categoryChart');
 
-/* Multiples by Category */
-new Chart(document.getElementById('multCatChart'), {
-  type: 'bar',
-  data: {
-    labels: ['SaaS', 'Fintech', 'Ecommerce', 'Consumer'],
-    datasets: [{
-      data: [18.8, 12.9, 13.1, 22.3],
-      backgroundColor: [NAVY, BLUE, NAVY_MID, GOLD],
-      borderWidth: 0,
-      borderRadius: 6,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        grid: { display: false },
-        ticks: { color: '#5a6a8a', font: { size: 12 } },
-        border: { display: false }
-      },
-      y: {
-        grid: { color: 'rgba(0,0,0,0.04)' },
-        ticks: {
-          color: '#8a9ab8',
-          font: { size: 11 },
-          callback: v => v + 'x'
-        },
-        border: { display: false },
-        min: 0
-      }
-    },
-    plugins: {
-      ...chartDefaults.plugins,
-      tooltip: {
-        ...chartDefaults.plugins.tooltip,
-        callbacks: {
-          label: ctx => ` ${ctx.raw.toFixed(1)}x`
-        }
-      }
-    },
-    animation: chartDefaults.animation
-  },
-  plugins: [{
-    afterDatasetsDraw(chart) {
-      const ctx2 = chart.ctx;
-      const vals = [18.8, 12.9, 13.1, 22.3];
-      chart.data.datasets[0].data.forEach((val, i) => {
-        const meta = chart.getDatasetMeta(0);
-        const bar = meta.data[i];
-        ctx2.save();
-        ctx2.fillStyle = '#fff';
-        ctx2.font = '600 13px DM Sans, sans-serif';
-        ctx2.textAlign = 'center';
-        ctx2.fillText(vals[i].toFixed(1) + 'x', bar.x, bar.y + 18);
-        ctx2.restore();
-      });
-    }
-  }]
-});
+const multLabelPlugin={afterDatasetsDraw(chart){const c=chart.ctx;chart.data.datasets[0].data.forEach((val,i)=>{const bar=chart.getDatasetMeta(0).data[i];c.save();c.fillStyle='#fff';c.font='600 13px DM Sans, sans-serif';c.textAlign='center';c.fillText(val.toFixed(1)+'x',bar.x,bar.y+18);c.restore();});}};
+function multChart(id){return new Chart(document.getElementById(id),{type:'bar',data:{labels:[],datasets:[{data:[],backgroundColor:[],borderWidth:0,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{grid:{display:false},ticks:{color:'#5a6a8a',font:{size:12}},border:{display:false}},y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{color:'#8a9ab8',font:{size:11},callback:v=>v+'x'},border:{display:false},min:0}},plugins:{...chartDefaults.plugins,tooltip:{...chartDefaults.plugins.tooltip,callbacks:{label:ctx=>` ${ctx.raw.toFixed(1)}x`}}},animation:chartDefaults.animation},plugins:[multLabelPlugin]});}
+const multStageChart=multChart('multStageChart');
+const multCatChart=multChart('multCatChart');
 
-/* Heatmap Etapa x Categoría */
-const heatData = {
-  'Seed':           { SaaS: {v:22.7,n:9},  Fintech: {v:8.5,n:2},  Ecommerce: {v:12.3,n:3}, Consumer: {v:41.7,n:1} },
-  'Seed Extension': { SaaS: null,           Fintech: {v:18.6,n:3}, Ecommerce: {v:7.7,n:1},  Consumer: {v:3.0,n:1}  },
-  'Series A':       { SaaS: {v:5.7,n:2},   Fintech: {v:4.5,n:1},  Ecommerce: {v:20.8,n:1}, Consumer: null         },
-};
-const heatCats = ['SaaS','Fintech','Ecommerce','Consumer'];
-const heatStages = ['Seed','Seed Extension','Series A'];
+function pct(v,t){return t>0?(v/t*100).toFixed(1):'0.0';}
 
-// Find max for color scaling (exclude n=1)
-const allVals = [];
-heatStages.forEach(s => heatCats.forEach(c => {
-  const d = heatData[s][c];
-  if (d && d.n > 1) allVals.push(d.v);
-}));
-const maxVal = Math.max(...allVals);
-
-function heatColor(v) {
-  if (v === null || v === undefined) return { bg: '#f1f3f8', text: '#b0baca' };
-  const intensity = Math.min(v / maxVal, 1);
-  const r = Math.round(31 + (230 - 31) * (1 - intensity));
-  const g = Math.round(56 + (240 - 56) * (1 - intensity));
-  const b = Math.round(100 + (250 - 100) * (1 - intensity));
-  const textColor = intensity > 0.45 ? '#ffffff' : '#1a2340';
-  return { bg: `rgb(${r},${g},${b})`, text: textColor };
+function renderHeatmap(heat){
+  const cats=CAT_ORDER, stages=['Seed','Seed Extension','Series A'];
+  const vals=[];stages.forEach(s=>cats.forEach(c=>{const d=heat[s]&&heat[s][c];if(d&&d.n>1)vals.push(d.v);}));
+  const maxVal=vals.length?Math.max(...vals):1;
+  function color(v){if(v==null)return{bg:'#f1f3f8',text:'#b0baca'};const i=Math.min(v/maxVal,1);const r=Math.round(31+(230-31)*(1-i)),g=Math.round(56+(240-56)*(1-i)),b=Math.round(100+(250-100)*(1-i));return{bg:`rgb(${r},${g},${b})`,text:i>0.45?'#fff':'#1a2340'};}
+  const tb=document.getElementById('heatmap-body');tb.innerHTML='';
+  stages.forEach(stage=>{const tr=document.createElement('tr');const td0=document.createElement('td');td0.style.cssText='font-size:13px;font-weight:600;color:#1a2340;padding:4px 8px;white-space:nowrap;';td0.textContent=stage;tr.appendChild(td0);
+    cats.forEach(cat=>{const d=heat[stage]&&heat[stage][cat];const{bg,text}=color(d?d.v:null);const td=document.createElement('td');td.style.cssText=`background:${bg};border-radius:8px;text-align:center;padding:18px 12px;min-width:100px;`;td.innerHTML=d?`<div style="font-size:20px;font-weight:600;font-family:'DM Serif Display',serif;color:${text};line-height:1;">${d.v.toFixed(1)}x</div>`:`<div style="font-size:18px;color:#cdd3e0;">—</div>`;tr.appendChild(td);});
+    tb.appendChild(tr);});
 }
 
-const tbody = document.getElementById('heatmap-body');
-heatStages.forEach(stage => {
-  const tr = document.createElement('tr');
-  const tdLabel = document.createElement('td');
-  tdLabel.style.cssText = 'font-size:13px;font-weight:600;color:#1a2340;padding:4px 8px;white-space:nowrap;';
-  tdLabel.textContent = stage;
-  tr.appendChild(tdLabel);
-
-  heatCats.forEach(cat => {
-    const d = heatData[stage][cat];
-    const { bg, text } = heatColor(d ? d.v : null);
-    const td = document.createElement('td');
-    td.style.cssText = `background:${bg};border-radius:8px;text-align:center;padding:18px 12px;min-width:100px;`;
-    if (d) {
-      td.innerHTML = `<div style="font-size:20px;font-weight:600;font-family:'DM Serif Display',serif;color:${text};line-height:1;">${d.v.toFixed(1)}x</div>`;
-    } else {
-      td.innerHTML = `<div style="font-size:18px;color:#cdd3e0;">—</div>`;
-    }
-    tr.appendChild(td);
-  });
-  tbody.appendChild(tr);
-});
-
-document.getElementById('periodSelect').addEventListener('change', function() {
-  document.getElementById('currentPeriod').textContent = this.value;
-  if (this.value !== 'Q1 2026') {
-    alert('Datos de ' + this.value + ' aún no disponibles. Cargue el archivo de datos del nuevo trimestre para actualizar.');
-  }
-});
-
-/* Download single card */
-function downloadCard(cardId) {
-  const card = document.getElementById(cardId);
-  const hint = document.getElementById('export-hint');
-  hint.classList.add('visible');
-  const period = document.getElementById('currentPeriod').textContent.replace(' ', '-');
-  html2canvas(card, {
-    scale: 2,
-    backgroundColor: '#ffffff',
-    logging: false,
-    useCORS: true
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = `tantauco-${cardId}-${period}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    hint.classList.remove('visible');
-  });
+function renderPeriod(key){
+  const d=DATASETS[key];if(!d)return;
+  document.getElementById('currentPeriod').textContent=key;
+  document.querySelectorAll('.period-label').forEach(el=>el.textContent=key);
+  // KPI
+  document.getElementById('kpiTotal').textContent=d.total;
+  document.getElementById('kpiSub').textContent=d.kpiSub+' · '+key;
+  // Country (asc sorted)
+  const cEntries=COUNTRY_ORDER.map(n=>[n,d.country[n]||0]).sort((a,b)=>a[1]-b[1]);
+  countryChart.data.labels=cEntries.map(e=>e[0]);
+  countryChart.data.datasets[0].data=cEntries.map(e=>e[1]);
+  countryChart.data.datasets[0].backgroundColor=cEntries.map((e,i)=>ASC_COLORS[i]);
+  countryChart.update();
+  const ctot=COUNTRY_ORDER.reduce((s,n)=>s+(d.country[n]||0),0);
+  document.getElementById('legend-country').innerHTML=COUNTRY_ORDER.map(n=>`<span class="legend-item"><span class="legend-dot" style="background:${COUNTRY_DOT[n]}"></span>${n} — ${pct(d.country[n]||0,ctot)}%</span>`).join('');
+  // Stage
+  stageChart.data.labels=STAGE_ORDER;
+  stageChart.data.datasets[0].data=STAGE_ORDER.map(s=>d.stage[s]||0);
+  stageChart.data.datasets[0].backgroundColor=STAGE_ORDER.map(s=>STAGE_DOT[s]);
+  stageChart.update();
+  const stot=STAGE_ORDER.reduce((s,n)=>s+(d.stage[n]||0),0);
+  document.getElementById('legend-stage').innerHTML=STAGE_ORDER.map(s=>`<span class="legend-item"><span class="legend-dot" style="background:${STAGE_DOT[s]}"></span>${s.replace('Seed Extension','Seed Ext.')} — ${pct(d.stage[s]||0,stot)}%</span>`).join('');
+  // Category
+  categoryChart.data.labels=CAT_ORDER;
+  categoryChart.data.datasets[0].data=CAT_ORDER.map(c=>d.category[c]||0);
+  categoryChart.data.datasets[0].backgroundColor=CAT_ORDER.map(c=>CAT_DOT[c]);
+  categoryChart.update();
+  const cattot=CAT_ORDER.reduce((s,n)=>s+(d.category[n]||0),0);
+  document.getElementById('legend-category').innerHTML=CAT_ORDER.map(c=>`<span class="legend-item"><span class="legend-dot" style="background:${CAT_DOT[c]}"></span>${c} — ${pct(d.category[c]||0,cattot)}%</span>`).join('');
+  const excl=d.total-cattot;
+  document.getElementById('catNote').textContent=`* Excluye ${excl} empresas categorizadas como "Other" o sin categoría definida.`;
+  // Mult by stage
+  const ms=['Seed','Seed Extension','Series A'];
+  multStageChart.data.labels=ms;
+  multStageChart.data.datasets[0].data=ms.map(s=>d.multStage[s]||0);
+  multStageChart.data.datasets[0].backgroundColor=[NAVY,BLUE,NAVY_MID];
+  multStageChart.update();
+  // Mult by category (only present)
+  const presentCats=CAT_ORDER.filter(c=>d.multCat[c]!=null);
+  multCatChart.data.labels=presentCats;
+  multCatChart.data.datasets[0].data=presentCats.map(c=>d.multCat[c]);
+  multCatChart.data.datasets[0].backgroundColor=presentCats.map(c=>CAT_COLOR[c]);
+  multCatChart.update();
+  // Heatmap
+  renderHeatmap(d.heat);
 }
 
-/* Export full dashboard */
-function exportDashboard() {
-  const hint = document.getElementById('export-hint');
-  hint.textContent = 'Generando imagen completa...';
-  hint.classList.add('visible');
-  const period = document.getElementById('currentPeriod').textContent.replace(' ', '-');
-  html2canvas(document.querySelector('main'), {
-    scale: 2,
-    backgroundColor: '#f5f7fc',
-    logging: false,
-    useCORS: true
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = `tantauco-pipeline-${period}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    hint.textContent = 'Descargando imagen...';
-    hint.classList.remove('visible');
-  });
-}
+document.getElementById('periodSelect').addEventListener('change',function(){renderPeriod(this.value);});
+renderPeriod('Acumulado H1 2026');
+
+function downloadCard(cardId){const card=document.getElementById(cardId);const hint=document.getElementById('export-hint');hint.classList.add('visible');const period=document.getElementById('currentPeriod').textContent.replace(/ /g,'-');html2canvas(card,{scale:2,backgroundColor:'#ffffff',logging:false,useCORS:true}).then(canvas=>{const link=document.createElement('a');link.download=`tantauco-${cardId}-${period}.png`;link.href=canvas.toDataURL('image/png');link.click();hint.classList.remove('visible');});}
+function exportDashboard(){const hint=document.getElementById('export-hint');hint.textContent='Generando imagen completa...';hint.classList.add('visible');const period=document.getElementById('currentPeriod').textContent.replace(/ /g,'-');html2canvas(document.querySelector('main'),{scale:2,backgroundColor:'#f5f7fc',logging:false,useCORS:true}).then(canvas=>{const link=document.createElement('a');link.download=`tantauco-pipeline-${period}.png`;link.href=canvas.toDataURL('image/png');link.click();hint.textContent='Descargando imagen...';hint.classList.remove('visible');});}
 </script>
 </body>
 </html>
